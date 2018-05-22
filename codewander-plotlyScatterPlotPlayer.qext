@@ -1,0 +1,15 @@
+{
+	"name": "codewander-plotlyScatterPlotPlayer",
+	"description": "Chart visualization template",
+	"icon": "scatter-chart",
+	"type": "visualization",
+	"version": "1.0.0",
+	"author": "",
+	"homepage": "",
+	"keywords": "qlik-sense, visualization",
+	"license": "",
+	"repository": "",
+	"dependencies": {
+		"qlik-sense": ">=3.0.x"
+	}
+}
