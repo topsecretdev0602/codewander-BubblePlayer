@@ -78,6 +78,7 @@ define( ["qlik", "text!./codewander-plotlyScatterPlotPlayer.ng.html", "css!./cod
 					maxBubbleSize:"50"					
 				}
 				var self =this;
+				var qElemNumber=[];
 				var min_x=0;
 				var max_x=0;
 				var min_y=0;
@@ -101,6 +102,7 @@ define( ["qlik", "text!./codewander-plotlyScatterPlotPlayer.ng.html", "css!./cod
 							self.$scope.lastrow = rownum;
 							dataMatrix.push(row);
 				 });
+				 
 				var data=convert(dataMatrix);
 				render(data);
 				//needed for export
@@ -119,6 +121,7 @@ define( ["qlik", "text!./codewander-plotlyScatterPlotPlayer.ng.html", "css!./cod
 									self.paint(layout );
 						   } );
 				 }
+				 
 				
 				function convert(Matrix)
 				{
@@ -127,6 +130,10 @@ define( ["qlik", "text!./codewander-plotlyScatterPlotPlayer.ng.html", "css!./cod
 				 	data[index]={};
 				 	$.each(cols,function(col_index,col){
 						data[index][col]= col_index<= dimensions_count-1 ? item[col_index].qText : item[col_index].qNum;
+						if (col_index<= dimensions_count-1){
+							if(qElemNumber[col_index]==null)qElemNumber[col_index]={};
+							qElemNumber[col_index][item[col_index].qText]=item[col_index].qElemNumber;
+						}
 					})
 				 })
 				 return data;
@@ -308,6 +315,16 @@ define( ["qlik", "text!./codewander-plotlyScatterPlotPlayer.ng.html", "css!./cod
 					frames: frames,
 				  });
 				  }
+				  
+				  document.getElementById('myDiv').on('plotly_click', function(e){
+					var pts = '';
+					var FirstDimVal= e.points[0].data.name;
+					var SecondDimVal = e.points[0].text;
+					self.$scope.makeSelection(qElemNumber[1][FirstDimVal],qElemNumber[2][SecondDimVal]);
+					
+					
+				  });
+
 				
 				//Plotly Code Ends
 			
@@ -327,6 +344,11 @@ define( ["qlik", "text!./codewander-plotlyScatterPlotPlayer.ng.html", "css!./cod
 				$scope.lastrow = 0;
 				
 				$scope.selections = [];
+				$scope.makeSelection = function (first, second){
+					this.backendApi.selectValues(1,[first],true);
+					this.backendApi.selectValues(2,[second],true);
+					
+				}
 
 				$scope.sel = function ( $event ) {
 					if ( $event.currentTarget.hasAttribute( "data-row" ) ) {
