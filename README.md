@@ -11,7 +11,7 @@ Here is the new qliksense extension - bubble chart animated. This is an inspirat
 </ul>
 <div style="width: 100%;">
 
-<a style="background-color: #81d742; padding: 14px; color: white; display: inline-block; text-align: center; text-decoration: none;" href="http://www.codewander.com/download/?download_link=https://orchilens.sgp1.digitaloceanspaces.com/codewander.com/codewander.com/codewander-plotlyScatterPlotPlayer.zip&amp;download_title=Qliksense%20Extension%20Bubble%20Chart%20Animated" target="_blank" rel="noopener">Download Qliksense Animated Bubble Chart Extension </a><a style="display: inline-block; background-color: #ffbe0a; padding: 14px; color: white; text-align: center; text-decoration: none;" href="https://github.com/CodeAtRoost/codewander-plotlyScatterPlotPlayer" target="_blank" rel="noopener"> Clone from GIT HUB </a>
+<a style="background-color: #81d742; padding: 14px; color: white; display: inline-block; text-align: center; text-decoration: none;" href="http://www.codewander.com/download/?download_link=https://github.com/CodeAtRoost/codewander-plotlyScatterPlotPlayer/archive/1.1.zip&amp;download_title=Qliksense%20Extension%20Bubble%20Chart%20Animated" target="_blank" rel="noopener">Download Qliksense Animated Bubble Chart Extension </a><a style="display: inline-block; background-color: #ffbe0a; padding: 14px; color: white; text-align: center; text-decoration: none;" href="https://github.com/CodeAtRoost/codewander-plotlyScatterPlotPlayer" target="_blank" rel="noopener"> Clone from GIT HUB </a>
 
 </div>
 <h2>Add to the sheet and set measures and dimensions</h2>
