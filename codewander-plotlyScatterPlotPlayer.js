@@ -55,6 +55,28 @@ define( ["qlik", "text!./codewander-plotlyScatterPlotPlayer.ng.html", "css!./cod
 						label: "Max Bubble Size",
 						type: "string",
 						defaultValue:"50"						
+						},
+						ScrollZoom:{
+						type: "boolean",
+						component: "switch",
+						label: "Enable Scroll Zoom",
+						ref: "scrollZoom",
+						options: [{
+							value: true,
+							label: "Yes"
+						}, {
+							value: false,
+							label: "No"
+						}],
+						defaultValue: true					
+						},
+						DisplayModeBar:{
+						type: "string",
+						component: "dropdown",
+						label: "Display Mode Bar",
+						ref: "displayModeBar",
+						options: [{value:'1',label:'Always'},{value:'0',label:'on Hover'},{value:'-1',label:'Never'}],
+						defaultValue:'0'
 						}
 						}
 					
@@ -307,13 +329,21 @@ define( ["qlik", "text!./codewander-plotlyScatterPlotPlayer.ng.html", "css!./cod
 					  steps: sliderSteps
 					}]
 				  };
-
+					var config = {};
+					config.scrollZoom= self.$scope.layout.scrollZoom;
+					var pdisplayModeBar={}
+					if (self.$scope.layout.displayModeBar=='1') {config.displayModeBar=true}
+					else if (self.$scope.layout.displayModeBar=='-1') {config.displayModeBar= false;}
+					else {config.displayModeBar=null;}
 				  // Create the plot:
 				  Plotly.newPlot('myDiv', {
 					data: traces,
-					layout: layout,
-					frames: frames,
-				  });
+					layout: layout,	
+					config:config,
+					frames: frames
+					
+				  } );
+					
 				  }
 				  
 				  document.getElementById('myDiv').on('plotly_click', function(e){
