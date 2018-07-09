@@ -1,5 +1,6 @@
 # codewander-plotlyScatterPlotPlayer
-
+07/08/2018:
+This extension fetches data gradually when the total data exceeds 1000 records. However, the chart will render and refresh as per the data fetched. So the users will not have any delay in seeing the data
 
 06/18/2018:
 Included option for scrollZoom and optionally hide or show Mode Bar.
